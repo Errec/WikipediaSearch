@@ -8,50 +8,57 @@ var gulp         = require('gulp'),
     jade         = require('gulp-jade'),
     imagemin     = require('gulp-imagemin');
 
-//  Scritp tasks
-//   Uglifies
-gulp.task('scripts', function(){
+  var reload = browserSync.reload;
 
-  gulp.src('_sass/**/*.scss')
-  .pipe(sass())
-  .pipe(gulp.dest('develpment/css/'));
 
-  gulp.src('_jade/**/*.jade')
+gulp.task('templates', function(){
+  gulp.src('jade/**/*.jade')
+  .pipe(plumber())
   .pipe(jade())
-  .pipe(gulp.dest('develpment/'));
+  .pipe(gulp.dest('development/'));
+});
 
-  gulp.src('develpment/img/**/*')
-    .pipe(changed('_img'))
+gulp.task('sass', function(){
+  gulp.src('sass/**/*.scss')
+  .pipe(plumber())
+  .pipe(sass({
+      includePaths: require('node-bourbon').includePaths
+    }))
+  .pipe(gulp.dest('development/css'));
+});
+
+gulp.task('scripts', function(){
+  gulp.src('development/img/**/*')
+    .pipe(changed('img'))
     .pipe(imagemin())
-    .pipe(gulp.dest('_img'));
+    .pipe(gulp.dest('img'));
 
   gulp.src('js/*.js')
       .pipe(plumber())
       .pipe(uglify())
-      .pipe(gulp.dest('build/js'));
+      .pipe(gulp.dest('development/js'));
 
-  gulp.src('develpment/css/main.css')
+  gulp.src('development/css/main.css')
     .pipe(autoprefixer({
-        browsers: ['last 3 versions'],
+        browsers: ['last 5 versions'],
         cascade: false
     }))
-    .pipe(gulp.dest('develpment/css'))
+    .pipe(gulp.dest('development/css'));
 });
 
-//  Watch tasks
-//   Uglifies
 gulp.task('watch', ['browserSync'], function(){
-  gulp.watch('develpment/js/*.js', browserSync.reload);
-  gulp.watch('_jade/**/*.jade', browserSync.reload);
-  gulp.watch('_sass/**/*.scss', browserSync.reload);
+  gulp.watch('jade/**/*.jade', ['templates']);
+  gulp.watch('sass/**/*.scss', ['sass']);
+  gulp.watch('development/js/*.js', reload);
+  gulp.watch('development/index.html', reload);
+  gulp.watch('development/css/*.css', reload);
 });
 
-//  Auto load browser
-//   BrowserSync
 gulp.task('browserSync', function(){
   browserSync.init({
     server: {
-      proxy: "local.dev"
+      proxy: "local.dev",
+      baseDir: "development/"
     }
   });
 });
