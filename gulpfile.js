@@ -10,18 +10,18 @@ var gulp         = require('gulp'),
 
   var reload = browserSync.reload;
 
-
 gulp.task('templates', function(){
-  gulp.src('jade/**/*.jade')
+  gulp.src('jade/*.jade')
   .pipe(plumber())
   .pipe(jade())
   .pipe(gulp.dest('development/'));
 });
 
 gulp.task('sass', function(){
-  gulp.src('sass/**/*.scss')
+  gulp.src('sass/*.scss')
   .pipe(plumber())
   .pipe(sass({
+      indentedSyntax: true,
       includePaths: require('node-bourbon').includePaths
     }))
   .pipe(gulp.dest('development/css'));
@@ -47,8 +47,8 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('watch', ['browserSync'], function(){
-  gulp.watch('jade/**/*.jade', ['templates']);
-  gulp.watch('sass/**/*.scss', ['sass']);
+  gulp.watch('jade/*.jade', ['templates']);
+  gulp.watch('sass/*.scss', ['sass']);
   gulp.watch('development/js/*.js', reload);
   gulp.watch('development/index.html', reload);
   gulp.watch('development/css/*.css', reload);

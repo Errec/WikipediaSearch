@@ -1,6 +1,9 @@
 node_modules/
 build/
 
+# bower_components:
+lib/
+
 # cache files for sublime text
 *.tmlanguage.cache
 *.tmPreferences.cache
