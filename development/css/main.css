@@ -401,14 +401,3 @@ template {
  */
 [hidden] {
   display: none; }
-
-.container {
-  padding: 100%;
-  background-color: #1e5799;
-  background-image: -webkit-radial-gradient(#1e5799, #3dc3d1);
-  background-image: radial-gradient(  #1e5799, #3dc3d1);
-  background-color: red;
-  background-image: -webkit-radial-gradient(#1e5799, #3dc3d1);
-  background-image: radial-gradient(  #1e5799, #3dc3d1);
-  background-image: -webkit-radial-gradient(50% 50%, circle, #eee 10%, #1e5799 30%, #efefef);
-  background-image: radial-gradient(  circle at 50% 50%, #eee 10%, #1e5799 30%, #efefef); }

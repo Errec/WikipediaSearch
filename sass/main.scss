@@ -1,8 +1,2 @@
 @import 'bourbon'
 @import 'modules/normalize.scss'
-
-.container
-  @include padding(100%)
-  @include radial-gradient(#1e5799, #3dc3d1);
-  @include radial-gradient(#1e5799, #3dc3d1, $fallback: red);
-  @include radial-gradient(circle at 50% 50%, #eee 10%, #1e5799 30%, #efefef)
