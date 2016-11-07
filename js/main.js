@@ -14,9 +14,10 @@ $('.submit-btn').click(function(event){
 });
 
 function SetResultsGrid(data){
+  $('.result-container').empty();
   for (var i = 0; i < data[1].length; i++){
-    $('body').append('<h3>' + data[1][i] + '</h3>');
-    $('body').append('<p>' + data[2][i] + '</p>');
+    $('.result-container').append('<h3>' + data[1][i] + '</h3>');
+    $('.result-container').append('<p>' + data[2][i] + '</p>');
   }
 }
 
@@ -31,5 +32,3 @@ function GetFormText(){
 function GetSelectedLang(){
   return $('select').val();
 }
-
-
