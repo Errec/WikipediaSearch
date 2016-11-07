@@ -11,7 +11,17 @@ html(class="no-js" lang="en")
     link(rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css")
 
   body
-    input.random-btn(type="button" value="Lucky!")
+    div.search-container
+      form.search-form
+          input(id="#search-input" type="text")
+          select.select-lang
+            option(value='en') en
+            option(value='es') es
+            option(value='pt') pt
+          button.submit-btn(class='btn btn-primary' type='submit')
+            span(class="glyphicon glyphicon-search")
+    div
+      input.random-btn(class='btn btn-primary' type="button" value="Lucky!")
 
   script(src="/lib/jquery/dist/jquery.min.js")
   script(src="/lib/bootstrap/dist/js/bootstrap.min.js")

@@ -1,8 +1,9 @@
 node_modules/
 build/
+dev/
 
 # bower_components:
-development/lib
+dev/lib
 
 # cache files for sublime text
 *.tmlanguage.cache
