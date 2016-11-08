@@ -6,10 +6,8 @@ $('.random-btn').click(function(){
 
 $('.submit-btn').click(function(event){
   event.preventDefault();
-
-  $.getJSON('https://' + GetSelectedLang() + '.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + GetFormText() + '&limit=' + numberOfEntries + '&callback=?', function(data){
+  $.getJSON('https://' + GetSelectedLang() + '.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + GetFormInput() + '&limit=' + numberOfEntries + '&callback=?', function(data){
   SetResultsGrid(data);
-/*    console.log('https://' + lang + '.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + keyword + '&limit=' + numberOfEntries + '&callback=?');*/
   });
 });
 
@@ -21,7 +19,7 @@ function SetResultsGrid(data){
   }
 }
 
-function GetFormText(){
+function GetFormInput(){
   if(document.getElementById('#search-input').value === ''){
     return ' ';
   } else {
