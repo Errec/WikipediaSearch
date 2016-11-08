@@ -11,7 +11,11 @@ html(class="no-js" lang="en")
     link(rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css")
 
   body
-    div.search-container
+    .logo-container.container-fluid
+      h1 The Free WikipediA Viewer
+    .hero-container.container-fluid
+      img(src='/img/bwIcon.png')
+    .search-container.container-fluid
       form.search-form
           input(id="#search-input" type="text")
           select.select-lang
@@ -20,9 +24,9 @@ html(class="no-js" lang="en")
             option(value='pt') pt
           button.submit-btn(class='btn btn-primary' type='submit')
             span(class="glyphicon glyphicon-search")
-    div
+    .random-btn-container
       input.random-btn(class='btn btn-primary' type="button" value="Lucky!")
-    div.result-container
+    .result-container
 
   script(src="/lib/jquery/dist/jquery.min.js")
   script(src="/lib/bootstrap/dist/js/bootstrap.min.js")

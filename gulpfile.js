@@ -9,9 +9,11 @@ var imagemin     = require('gulp-imagemin');
 var del          = require('del');
 // sudo npm install gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-jade gulp-imagemin del --save-dev
 gulp.task('styles', function(){
-  return sass({
+  return gulp.src('sass/*.scss')
+    .pipe(sass({
       indentedSyntax: true,
-      includePaths: require('node-bourbon').includePaths})
+      includePaths: require('node-bourbon').includePaths
+    }))
     .pipe(autoprefixer({
       browsers: ['last 3 versions'],
       cascade: false}))
