@@ -1,2 +1,42 @@
 @import 'bourbon'
 @import 'modules/normalize.scss'
+
+html
+  background-color: #F9F9F9
+
+.hero-container
+  background-color: #F9F9F9
+  height: auto
+  weight: auto
+
+.search-container
+  background-color: #F9F9F9
+  text-align: center
+
+.input-container
+  border: solid 2px #9A9A9A
+  min-width: 300px
+  display: inline-block
+  margin-left: auto
+  margin-right: 10px
+
+.random-btn-container
+  background-color: #F9F9F9
+  text-align: center
+
+.form-input
+  min-width: 240px
+  min-height: 35px
+  background-color: #F9F9F9
+  border: none
+  &:focus
+    outline: none
+
+.select-lang
+  border: none
+  background-color: #F9F9F9
+  &:hover
+    background-color: #EFEFEF
+    cursor: pointer
+
+

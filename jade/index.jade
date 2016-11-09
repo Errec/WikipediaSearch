@@ -11,18 +11,17 @@ html(class="no-js" lang="en")
     link(rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css")
 
   body
-    .logo-container.container-fluid
-      h1 The Free WikipediA Viewer
     .hero-container.container-fluid
-      img(src='/img/bwIcon.png')
+      img(class="center-block img-responsive" src='/img/bwIcon.png')
     .search-container.container-fluid
       form.search-form
-          input(id="#search-input" type="text")
+        .input-container
+          input.form-input(id="#search-input" type="text")
           select.select-lang
-            option(value='en') en
-            option(value='es') es
-            option(value='pt') pt
-          button.submit-btn(class='btn btn-primary' type='submit')
+            option(value='en') EN
+            option(value='es') ES
+            option(value='pt') PT
+        button.submit-btn(class='btn btn-primary' type='submit')
             span(class="glyphicon glyphicon-search")
     .random-btn-container
       input.random-btn(class='btn btn-primary' type="button" value="Lucky!")
