@@ -4,9 +4,6 @@
 html
   background-color: #FCFCFC
 
-body
-  background-color: red
-
 .hero-container
   background-color: #FCFCFC
   height: auto
@@ -19,6 +16,7 @@ body
   padding-bottom: 50px
 
 .input-container
+  vertical-align: bottom
   border: solid 1px #9A9A9A
   display: inline-block
   margin-right: 10px
@@ -50,11 +48,11 @@ body
   background-color: #C7C7C7
   width: 52px
   height: 42px
-  font-size: 18px
+  font-size: 16px
   border: none
   color: black
   border-radius: 2px
-  transition: all 0.3s ease;
+  transition: all 0.3s ease
   &:focus
     outline-color: black
   &:hover
@@ -64,12 +62,12 @@ body
   background-color: #FCFCFC
 
 .random-btn
+
   background-color: #F4F4F4
   width: 250px
   height: 30px
-  font-size: 18px
   border: solid 1px black
-  font-size: 13px
+  font-size: 14px
   color: black
   border-radius: 2px
   transition: all 0.1s ease;
@@ -77,6 +75,9 @@ body
     outline-color: black
   &:hover
     background-color: #FCFCFC
+  span
+      padding-left: 6px
+      vertical-align: -1px
 
 .random-btn-wrapper
   text-align: center
@@ -99,6 +100,3 @@ body
   &:after
     left: 10px
     margin-right: -50%
-
-
-
