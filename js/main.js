@@ -30,3 +30,5 @@ function GetFormInput(){
 function GetSelectedLang(){
   return $('select').val();
 }
+
+// TODO: form border on focus

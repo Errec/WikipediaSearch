@@ -67,7 +67,7 @@ gulp.task('default', ['cleanup'], function() {
 
 gulp.task('watch', function(){
   gulp.watch('jade/*.jade', ['templates']);
-  gulp.watch('sass/*.scss', ['styles']);
+  gulp.watch('sass/**/*', ['styles']);
   gulp.watch('js/*.js', ['scripts']);
   gulp.watch('img/**/*', ['images']);
 
