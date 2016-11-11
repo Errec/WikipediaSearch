@@ -14,8 +14,14 @@ $('.submit-btn').click(function(event){
 function SetResultsGrid(data){
   $('.result-container').empty();
   for (var i = 0; i < data[1].length; i++){
-    $('.result-container').append('<h3>' + data[1][i] + '</h3>');
-    $('.result-container').append('<p>' + data[2][i] + '</p>');
+
+/*    $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=' + data[1][i].split(' ').join('_') + '&callback=?', function(dataImg){
+        var id = Object.keys(dataImg.query.pages)[0];
+        var imgSrc = dataImg.query.pages[id].thumbnail.original;
+        $('body').append('<img class="thumbnail" src=' + '"' + imgSrc + '"' + '>');
+    });*/
+    $('.article-text').append('<h3 class="article-head">' + data[1][i] + '</h3>');
+    $('.article-text').append('<p class="aticle-body">' + data[2][i] + '</p>');
   }
 }
 
