@@ -16,17 +16,16 @@ html
 
 .input-container
   vertical-align: bottom
-  border: solid 1px #9A9A9A
+  outline: solid 1px #9A9A9A
   display: inline-block
   margin-right: 10px
   width: 70%
   max-width: 400px
-  border-radius: 2px
 
 .form-input
   max-width: 335px;
   width: 80%;
-  min-height: 40px
+  min-height: 41px
   border: none
   -webkit-box-shadow: 0 0 0px 1000px #FCFCFC inset // background color for Chrome auto-complete
   &:focus

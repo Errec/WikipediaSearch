@@ -1,14 +1,23 @@
-var numberOfEntries = 5;
+$( document ).ready(function() {
+  var numberOfEntries = 5;
 
-$('.random-btn').click(function(){
-   window.location.href='https://' + GetSelectedLang() + '.wikipedia.org/wiki/Special:Random';
-});
+  $('.random-btn').click(function(){
+     window.location.href='https://' + GetSelectedLang() + '.wikipedia.org/wiki/Special:Random';
+  });
 
-$('.submit-btn').click(function(event){
-  event.preventDefault();
-  $.getJSON('https://' + GetSelectedLang() + '.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=' + numberOfEntries + '&prop=pageimages|extracts&pilimit=max&pithumbsize=400&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + GetFormInput() + '&callback=?', function(data){
+  $("input")
+    .focus( function() {
+    $(".input-container").css('outline', '2px solid black');
+    }).blur(function(){
+    $(".input-container").css('outline','solid 1px #9A9A9A');
+  });
 
-  SetResultsGrid(data);
+  $('.submit-btn').click(function(event){
+    event.preventDefault();
+    $.getJSON('https://' + GetSelectedLang() + '.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=' + numberOfEntries + '&prop=pageimages|extracts&pilimit=max&pithumbsize=400&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + GetFormInput() + '&callback=?', function(data){
+
+    SetResultsGrid(data);
+    });
   });
 });
 
