@@ -6,23 +6,33 @@ $('.random-btn').click(function(){
 
 $('.submit-btn').click(function(event){
   event.preventDefault();
-  $.getJSON('https://' + GetSelectedLang() + '.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + GetFormInput() + '&limit=' + numberOfEntries + '&callback=?', function(data){
+  $.getJSON('https://' + GetSelectedLang() + '.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=' + numberOfEntries + '&prop=pageimages|extracts&pilimit=max&pithumbsize=400&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + GetFormInput() + '&callback=?', function(data){
+
   SetResultsGrid(data);
   });
 });
 
 function SetResultsGrid(data){
+  var div = '';
+  var imgURL = '';
+  var imgThumbnail = '';
   $('.result-container').empty();
-  for (var i = 0; i < data[1].length; i++){
 
-/*    $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=' + data[1][i].split(' ').join('_') + '&callback=?', function(dataImg){
-        var id = Object.keys(dataImg.query.pages)[0];
-        var imgSrc = dataImg.query.pages[id].thumbnail.original;
-        $('body').append('<img class="thumbnail" src=' + '"' + imgSrc + '"' + '>');
-    });*/
-    $('.article-text').append('<h3 class="article-head">' + data[1][i] + '</h3>');
-    $('.article-text').append('<p class="aticle-body">' + data[2][i] + '</p>');
-  }
+  if (data.query === undefined) {
+    div = '<div>There were no results matching the query.</div>';
+  } else {
+      for (var id in data.query.pages){
+        imgThumbnail = data.query.pages[id].thumbnail;
+
+        if(imgThumbnail === undefined){
+          imgURL = "https://upload.wikimedia.org/wikipedia/commons/1/10/Wikipedia-W-bold-in-square.svg";
+        } else{
+          imgURL = imgThumbnail.source;
+        }
+        div += '<div class="card-wrapper"><img src="' + imgURL + '" class="thumbnail"/><div class="article-text"><h3 class="article-head">' + data.query.pages[id].title + '</h3><p class="article-body">' + data.query.pages[id].extract + '</p></div></div>';
+      }
+    }
+  $('.result-container').append(div);
 }
 
 function GetFormInput(){
