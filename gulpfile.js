@@ -17,8 +17,7 @@ gulp.task('styles', function(){
           this.emit('end');
       }}))
   .pipe(sass({
-    indentedSyntax: true,
-    includePaths: require('node-bourbon').includePaths
+    indentedSyntax: true
   }))
   .pipe(autoprefixer({
     browsers: ['last 3 versions'],

@@ -12,13 +12,23 @@ html(class="no-js" lang="en")
 
   body
     .body-container
+      .logo-container.container-fluid
+        img(class="center-block img-responsive" src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia_wordmark.png")
+        p Light Search
+      .hero-container.container-fluid
+        img(class="wikiglobe center-block img-responsive" src='https://upload.wikimedia.org/wikipedia/commons/d/de/Wikipedia-logo_%28inverse%29.png')
       .search-container
         form.search-form
           .input-container
             input.form-input(id="#search-input" type="text")
             select.select-lang
-              option(value='en') EN
+              option(value='ch') CH
+              option(value='de') DE
+              option(value='en' selected="selected") EN
               option(value='es') ES
+              option(value='fr') FR
+              option(value='it') IT
+              option(value='jp') JP
               option(value='pt') PT
           button.submit-btn(type='submit')
             span(class="glyphicon glyphicon-search")
@@ -27,6 +37,9 @@ html(class="no-js" lang="en")
           button.random-btn(type="button") Wikipedia Random Article
             span(class="glyphicon glyphicon-random")
       .result-container
+    .box-footer
+      footer
+        p © 2016 ErreC • All Rights Reserved - Powered By Wikipedia
 
   script(src="/lib/jquery/dist/jquery.min.js")
   script(src="/lib/bootstrap/dist/js/bootstrap.min.js")
