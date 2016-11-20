@@ -40,8 +40,8 @@ html
   max-width: 400px
 
 .form-input
-  max-width: 335px;
-  width: 80%;
+  max-width: 335px
+  width: 80%
   min-height: 41px
   border: none
   -webkit-box-shadow: 0 0 0px 1000px #FCFCFC inset // background color for Chrome auto-complete
@@ -80,7 +80,7 @@ html
   font-size: 14px
   color: black
   border-radius: 2px
-  transition: all 0.1s ease;
+  transition: all 0.1s ease
   &:focus
     outline-color: black
   &:hover
@@ -94,11 +94,11 @@ html
   margin-right: auto
   margin-left: auto
   max-width: 455px
-  width: 80%;
+  width: 80%
   display: block
   overflow: hidden
   &:before , &:after
-    position: relative;
+    position: relative
     content: ""
     display: inline-block
     width: 50%
@@ -113,7 +113,7 @@ html
 .box-footer
   background-color: #FCFCFC
   text-align: center
-  display: block;
-  font-size: 80%;
+  display: block
+  font-size: 80%
   padding: 20px 0 50px 0
   margin: 0 auto
